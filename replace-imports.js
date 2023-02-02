@@ -3,7 +3,7 @@
 // Author(s): bumblehead <chris@bumblehead.com>
 
 const acorn = require("acorn");
-const { log } = require("console");
+// const { log } = require("console");
 
 module.exports = (content, replacements) =>
   acorn
@@ -24,12 +24,8 @@ module.exports = (content, replacements) =>
           return acc;
         }, "");
         const replaced = content.substring(spec.start, spec.end);
-
-        log(replaced);
-
         content = content.replace(replaced, replace);
       }
 
-      // log(content);
       return content;
     }, content);
